@@ -153,10 +153,10 @@ class DCGAN(object):
       tf.float32, [None, self.z_dim], name='z')
     self.z_sum = histogram_summary("z", self.z)
 
-    if self.wgan and not self.can:
-        self.discriminator = discriminators.dcwgan_cond
-        self.generator = generators.dcgan_cond
-        self.d_update, self.g_update, self.losses, self.sums = WGAN_loss(self)
+    #if self.wgan and not self.can:
+        #self.discriminator = discriminators.dcwgan_cond
+        #self.generator = generators.dcgan_cond
+        #self.d_update, self.g_update, self.losses, self.sums = WGAN_loss(self)
 
     #if self.wgan and self.can:
         #self.discriminator = discriminators.vanilla_wgan
@@ -167,14 +167,14 @@ class DCGAN(object):
         self.discriminator = discriminators.vanilla_can
         self.generator = generators.vanilla_can
         self.d_update, self.g_update, self.losses, self.sums = CAN_loss(self)
-    elif not self.wgan and not self.can:
+    #elif not self.wgan and not self.can:
         #TODO: write the regular gan stuff
-        self.d_update, self.g_update, self.losses, self.sums = GAN_loss(self)
+        #self.d_update, self.g_update, self.losses, self.sums = GAN_loss(self)
 
     if self.can or not self.y_dim:
-        self.sampler            = self.generator(self, self.z, is_sampler=True)
+        self.sampler = self.generator(self, self.z, is_sampler=True)
     else:
-        self.sampler            = self.generator(self, self.z, self.y, is_sampler=True)
+        self.sampler = self.generator(self, self.z, self.y, is_sampler=True)
 
     t_vars = tf.trainable_variables()
     self.d_vars = [var for var in t_vars if 'd_' in var.name]
