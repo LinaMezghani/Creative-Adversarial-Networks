@@ -12,7 +12,7 @@ def vanilla_can(model, image, reuse=False):
         h1 = lrelu(model.d_bn1(conv2d(h0, model.df_dim*2, k_h=4, k_w=4, name='d_h1_conv', padding='VALID')))
         h2 = lrelu(model.d_bn2(conv2d(h1, model.df_dim*4, k_h=4, k_w=4, name='d_h2_conv', padding='VALID')))
         h3 = lrelu(model.d_bn3(conv2d(h2, model.df_dim*8, k_h=4, k_w=4, name='d_h3_conv', padding='VALID')))
-        h4 = lrelu(model.d_bn4(conv2d(h3, model.df_dim*16, k_h=4, k_w=4, name='d_h4_conv', padding='VALID')))
+        #h4 = lrelu(model.d_bn4(conv2d(h3, model.df_dim*16, k_h=4, k_w=4, name='d_h4_conv', padding='VALID')))
         shape = np.product(h4.get_shape()[1:].as_list())
         h5 = tf.reshape(h4, [-1, shape])
         #linear layer to determine if the image is real/fake
