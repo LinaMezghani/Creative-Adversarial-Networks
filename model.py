@@ -158,11 +158,11 @@ class DCGAN(object):
         self.generator = generators.dcgan_cond
         self.d_update, self.g_update, self.losses, self.sums = WGAN_loss(self)
 
-    if self.wgan and self.can:
-        self.discriminator = discriminators.vanilla_wgan
-        self.generator = generators.vanilla_wgan
+    #if self.wgan and self.can:
+        #self.discriminator = discriminators.vanilla_wgan
+        #self.generator = generators.vanilla_wgan
         #TODO: write all this wcan stuff
-        self.d_update, self.g_update, self.losses, self.sums = WCAN_loss(self)
+        #self.d_update, self.g_update, self.losses, self.sums = WCAN_loss(self)
     if not self.wgan and self.can:
         self.discriminator = discriminators.vanilla_can
         self.generator = generators.vanilla_can
