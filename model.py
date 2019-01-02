@@ -172,7 +172,7 @@ class DCGAN(object):
         #self.d_update, self.g_update, self.losses, self.sums = GAN_loss(self)
 
     if self.can or not self.y_dim:
-        self.sampler = self.generator(self, self.z, is_sampler=True)
+        self.sampler = self.generator(self, self.z, self.y, is_sampler=True)
     else:
         self.sampler = self.generator(self, self.z, self.y, is_sampler=True)
 
