@@ -9,6 +9,7 @@ from utils import pp, visualize, show_all_variables
 import tensorflow as tf
 
 flags = tf.app.flags
+FLAGS = flags.FLAGS
 flags.DEFINE_integer("epoch", 25, "Epoch to train [25]")
 flags.DEFINE_float("learning_rate", 0.0002, "Learning rate  for adam [0.0002]")
 flags.DEFINE_float("beta1", 0.5, "Momentum term of adam [0.5]")
@@ -41,7 +42,7 @@ flags.DEFINE_boolean("use_resize", False, "True if resize conv for upsampling, F
 flags.DEFINE_boolean("use_default_checkpoint", False, "True only if checkpoint_dir is None. Don't set this")
 flags.DEFINE_string("style_net_checkpoint", None, "The checkpoint to get style net. Leave default to note use stylenet")
 flags.DEFINE_boolean("allow_gpu_growth", False, "True if you want Tensorflow only to allocate the gpu memory it requires. Good for debugging, but can impact performance")
-FLAGS = flags.FLAGS
+
 
 
 
