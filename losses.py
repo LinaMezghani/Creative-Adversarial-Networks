@@ -126,7 +126,7 @@ def WGAN_loss(model):
     model.g_opt = tf.train.AdamOptimizer(learning_rate=model.learning_rate, beta1=0.5)
     model.d_opt = tf.train.AdamOptimizer(learning_rate=model.learning_rate, beta1=0.5)
 
-    model.G = model.generator(model, model.z, model.y)
+    model.G = model.generator(model, model.z)
     model.D_real = model.discriminator(model, model.inputs, model.y, reuse=False)
     model.D_fake = model.discriminator(model, model.G, model.y, reuse=True)
     model.g_loss = -tf.reduce_mean(model.D_fake)
