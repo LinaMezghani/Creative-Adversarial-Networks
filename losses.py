@@ -161,5 +161,4 @@ def WGAN_loss(model):
 
     model.d_sum = merge_summary([model.d_loss_sum, model.wp_sum, model.gp_sum])
     model.g_sum = merge_summary([model.g_loss_sum, model.G_sum])
-    return d_update, g_update, [model.d_loss, model.g_loss], [model.d_sum, model.g_sum]
-
+    return d_update, g_update, loss_ops, [model.d_sum, model.g_sum]
