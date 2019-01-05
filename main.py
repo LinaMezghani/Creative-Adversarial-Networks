@@ -145,7 +145,7 @@ def main(_):
     if FLAGS.train:
       dcgan.train(FLAGS)
     else:
-      if not dcgan.load(FLAGS.checkpoint_dir)[0]:
+      if not dcgan.load(FLAGS)[0]:
         raise Exception("[!] Train a model first, then run test mode")
 
     OPTION = 0
