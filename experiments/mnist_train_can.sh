@@ -1,8 +1,8 @@
 export CUDA_VISIBLE_DEVICES=0,1
 python3 main.py \
 --epoch 25 \
---can true \
---wgan false \
+--can "True" \
+--wgan "False" \
 --learning_rate .0001 \
 --beta 0.5 \
 --batch_size 4 \
