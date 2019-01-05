@@ -109,6 +109,9 @@ def main(_):
     y_dim = 27
   else:
     y_dim = None
+    
+  print("Flags wgan:", FLAGS.wgan)
+  print("Flags can:", FLAGS.can)
   dcgan = DCGAN(
       sess,
       input_width=FLAGS.input_width,
