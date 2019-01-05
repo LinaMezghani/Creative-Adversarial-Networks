@@ -13,12 +13,12 @@ python3 main.py \
 --input_fname_pattern */*.jpg \
 --checkpoint_dir checkpoint \
 --sample_dir samples \
---crop False \
---visualize False \
---can False \
---use_s3 False \
+--crop=False \
+--visualize=False \
+--can=False \
+--use_s3=False \
 --s3_bucket mlberkeley-cans \
---replay False \
---wgan True \
+--replay=False \
+--wgan=True \
 --train
 
