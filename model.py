@@ -138,7 +138,8 @@ class DCGAN(object):
 
   def build_model(self, old_model=False):
     if self.y_dim:
-      self.y = tf.placeholder(tf.float32, [None, self.y_dim], name='y2')
+      print("y_dim", self.y_dim)
+      self.y = tf.placeholder(tf.float32, [None, self.y_dim], name='y')
     else:
       self.y = None
 
