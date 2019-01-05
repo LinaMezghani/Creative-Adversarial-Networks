@@ -48,9 +48,6 @@ flags.DEFINE_boolean("allow_gpu_growth", False, "True if you want Tensorflow onl
 
 def main(_):
   print('Before processing flags')
-  print("Flags wgan:", FLAGS.wgan)
-  print("Flags can:", FLAGS.can)
-  #FLAGS.can = False
   pp.pprint(flags.FLAGS.__flags)
   if FLAGS.use_s3:
     import aws
@@ -65,9 +62,6 @@ def main(_):
     FLAGS.input_width = FLAGS.input_height
   if FLAGS.output_width is None:
     FLAGS.output_width = FLAGS.output_height
-    
-  print("Flags wgan:", FLAGS.wgan)
-  print("Flags can:", FLAGS.can)
 
   # configure the log_dir to match the params
   log_dir = os.path.join(FLAGS.log_dir, "dataset={},isCan={},lr={},imsize={},hasStyleNet={},batch_size={}".format(
@@ -117,8 +111,6 @@ def main(_):
   else:
     y_dim = None
     
-  print("Flags wgan:", FLAGS.wgan)
-  print("Flags can:", FLAGS.can)
   dcgan = DCGAN(
       sess,
       input_width=FLAGS.input_width,
