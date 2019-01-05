@@ -1,8 +1,8 @@
 export CUDA_VISIBLE_DEVICES=0,1
 python3 main.py \
 --epoch 25 \
---can=1 \
---wgan=0 \
+--can=True \
+--wgan=False \
 --learning_rate .0001 \
 --beta 0.5 \
 --batch_size 4 \
@@ -10,11 +10,11 @@ python3 main.py \
 --input_height 28 \
 --output_height 28 \
 --lambda_val 1.0 \
---smoothing 1 \
+--smoothing 1.0 \
 --dataset mnist \
 --input_fname_pattern */*.jpg \
 --checkpoint_dir checkpoint \
 --sample_dir samples \
---crop False \
---visualize False \
+--crop=False \
+--visualize=False \
 --train
