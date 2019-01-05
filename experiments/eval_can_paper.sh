@@ -14,8 +14,9 @@ python3 main.py \
 --dataset wikiart \
 --input_fname_pattern */*.jpg \
 --load_dir "logs/can_paper" \
+--checkpoint_dir "checkpoint/checkpoint" \
 --crop=False \
 --visualize=False \
 --can=True \
 --wgan=False \
---train False
+--train=False
