@@ -13,8 +13,7 @@ python3 main.py \
 --use_resize=True \
 --dataset wikiart \
 --input_fname_pattern */*.jpg \
---load_dir "logs/can_paper" \
---checkpoint_dir "checkpoint/checkpoint" \
+--checkpoint_dir checkpoint \
 --crop=False \
 --visualize=False \
 --can=True \
