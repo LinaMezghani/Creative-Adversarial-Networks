@@ -43,8 +43,7 @@ flags.DEFINE_string("style_net_checkpoint", None, "The checkpoint to get style n
 flags.DEFINE_boolean("allow_gpu_growth", False, "True if you want Tensorflow only to allocate the gpu memory it requires. Good for debugging, but can impact performance")
 FLAGS = flags.FLAGS
 
-print("Flags wgan:", FLAGS.wgan)
-print("Flags can:", FLAGS.can)
+
 
 def main(_):
   print('Before processing flags')
@@ -62,8 +61,9 @@ def main(_):
     FLAGS.input_width = FLAGS.input_height
   if FLAGS.output_width is None:
     FLAGS.output_width = FLAGS.output_height
-
-
+    
+  print("Flags wgan:", FLAGS.wgan)
+  print("Flags can:", FLAGS.can)
 
   # configure the log_dir to match the params
   log_dir = os.path.join(FLAGS.log_dir, "dataset={},isCan={},lr={},imsize={},hasStyleNet={},batch_size={}".format(
