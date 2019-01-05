@@ -154,25 +154,25 @@ class DCGAN(object):
     self.z_sum = histogram_summary("z", self.z)
     
     print("can :", self.can)
-    print("gan :", self.gan)
+    print("gan :", self.wgan)
     
     if self.wgan and not self.can:
-        self.discriminator = discriminators.dcwgan_cond
-        self.generator = generators.dcgan_cond
-        self.d_update, self.g_update, self.losses, self.sums = WGAN_loss(self)
+      self.discriminator = discriminators.dcwgan_cond
+      self.generator = generators.dcgan_cond
+      self.d_update, self.g_update, self.losses, self.sums = WGAN_loss(self)
 
     elif self.wgan and self.can:
-        self.discriminator = discriminators.vanilla_wgan
-        self.generator = generators.vanilla_wgan
-        #TODO: write all this wcan stuff
-        self.d_update, self.g_update, self.losses, self.sums = WCAN_loss(self)
+      self.discriminator = discriminators.vanilla_wgan
+      self.generator = generators.vanilla_wgan
+      #TODO: write all this wcan stuff
+      self.d_update, self.g_update, self.losses, self.sums = WCAN_loss(self)
     elif  self.can and not self.wgan :
       self.discriminator = discriminators.vanilla_can
       self.generator = generators.vanilla_can
       self.d_update, self.g_update, self.losses, self.sums = CAN_loss(self)
     elif not self.wgan and not self.can:
-        #TODO: write the regular gan stuff
-        self.d_update, self.g_update, self.losses, self.sums = GAN_loss(self)
+      #TODO: write the regular gan stuff
+      self.d_update, self.g_update, self.losses, self.sums = GAN_loss(self)
 
     if self.can or not self.y_dim:
         self.sampler = self.generator(self, self.z, is_sampler=True)
