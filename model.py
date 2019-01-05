@@ -154,8 +154,8 @@ class DCGAN(object):
     self.z_sum = histogram_summary("z", self.z)
     
     if self.wgan and not self.can:
-      self.discriminator = discriminators.dcwgan_cond
-      self.generator = generators.dcgan_cond
+      self.discriminator = discriminators.vanilla_wgan
+      self.generator = generators.vanilla_wgan
       self.d_update, self.g_update, self.losses, self.sums = WGAN_loss(self)
 
     elif self.wgan and self.can:
