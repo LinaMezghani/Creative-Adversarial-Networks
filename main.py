@@ -49,6 +49,7 @@ def main(_):
   print('Before processing flags')
   print("Flags wgan:", FLAGS.wgan)
   print("Flags can:", FLAGS.can)
+  FLAGS.wgan = False
   pp.pprint(flags.FLAGS.__flags)
   if FLAGS.use_s3:
     import aws
