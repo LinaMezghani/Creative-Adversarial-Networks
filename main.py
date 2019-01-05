@@ -43,6 +43,9 @@ flags.DEFINE_string("style_net_checkpoint", None, "The checkpoint to get style n
 flags.DEFINE_boolean("allow_gpu_growth", False, "True if you want Tensorflow only to allocate the gpu memory it requires. Good for debugging, but can impact performance")
 FLAGS = flags.FLAGS
 
+print("Flags wgan:", FLAGS.wgan)
+print("Flags can:", FLAGS.can)
+
 def main(_):
   print('Before processing flags')
   pp.pprint(flags.FLAGS.__flags)
