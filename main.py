@@ -137,7 +137,6 @@ def main(_):
 
   run_config = tf.ConfigProto()
   run_config.gpu_options.allow_growth=FLAGS.allow_gpu_growth
-  
   with tf.Session(config=run_config) as sess:
     dcgan.set_sess(sess)
     # show_all_variables()
