@@ -570,6 +570,7 @@ class DCGAN(object):
       self.saver.restore(self.sess, os.path.join(checkpoint_dir, ckpt_name))
       counter = int(next(re.finditer("(\d+)(?!.*\d)",ckpt_name)).group(0))
       print(" [*] Success to read {}".format(ckpt_name))
+      print("checkpoint_dir = ", checkpoint_dir)
       if os.path.exists(os.path.join(checkpoint_dir, 'sample_z.npy')):
         print(" [*] Success to read sample_z in {}".format(ckpt_name))
         sample_z = np.load(os.path.join(checkpoint_dir, 'sample_z.npy'))
