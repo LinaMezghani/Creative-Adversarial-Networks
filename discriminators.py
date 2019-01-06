@@ -67,8 +67,8 @@ def vanilla_wgan(model, image, reuse=False):
         #h4 = lrelu(layer_norm(conv2d(h3, model.df_dim*32, k_h=4, k_w=4, name='d_h4_conv', padding='VALID'), name ="dh4conv"))
         #h5 = lrelu(layer_norm(conv2d(h4, model.df_dim*32, k_h=4, k_w=4, name='d_h5_conv', padding='VALID'), name = "dh5conv"))
 
-        shape = np.product(h5.get_shape()[1:].as_list())
-        h5 = tf.reshape(h5, [-1, shape])
+        shape = np.product(h3.get_shape()[1:].as_list())
+        h5 = tf.reshape(h3, [-1, shape])
 
         out = linear(h5, 1, 'd_ro_lin')
         return out
