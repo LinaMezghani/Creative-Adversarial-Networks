@@ -3,7 +3,7 @@ export CUDA_VISIBLE_DEVICES=0,1 # edit this if you want to limit yourself to GPU
 python3 main.py \
 --epoch 25 \
 --learning_rate .0001 \
---beta 0.5 \
+--beta1_power 0.5 \
 --batch_size 16 \
 --sample_size 16 \
 --input_height 256 \
@@ -13,9 +13,10 @@ python3 main.py \
 --use_resize=True \
 --dataset wikiart \
 --input_fname_pattern */*.jpg \
+--checkpoint_dir checkpoint \
 --crop=False \
 --visualize=False \
 --can=True \
 --wgan=False \
---train \
+--train=False \
 
