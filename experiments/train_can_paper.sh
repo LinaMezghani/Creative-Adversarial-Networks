@@ -14,6 +14,7 @@ python3 main.py \
 --dataset wikiart \
 --input_fname_pattern */*.jpg \
 --checkpoint_dir checkpoint \
+--sample_dir samples \
 --crop=False \
 --visualize=False \
 --can=True \
