@@ -138,7 +138,7 @@ def WGAN_loss(model):
         maxval=1.
     )
     x_hat = model.inputs + epsilon * (model.G - model.inputs)
-    D_x_hat = model.discriminator(model, x_hat, model.y,reuse=True)
+    D_x_hat = model.discriminator(model, x_hat,reuse=True)
     grad_D_x_hat = tf.gradients(D_x_hat, [x_hat])[0]
     model.slopes = tf.sqrt(tf.reduce_sum(tf.square(grad_D_x_hat), reduction_indices=[1,2,3]))
     model.gradient_penalty = tf.reduce_mean((model.slopes - 1.) ** 2)
