@@ -16,8 +16,6 @@ python3 main.py \
 --crop=False \
 --visualize=False \
 --can=False \
---use_s3=False \
---s3_bucket mlberkeley-cans \
 --replay=False \
 --wgan=True \
 --train
