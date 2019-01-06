@@ -32,6 +32,7 @@ def wgan_cond(model, image, y, reuse=False):
         if reuse:
             scope.reuse_variables()
         
+        
         yb = tf.reshape(y, [-1, 1, 1, model.y_dim])
         image_ = conv_cond_concat(image, yb)
         h0 = lrelu(layer_norm(conv2d(image_, model.df_dim, k_h=4, k_w=4, name='d_h0_conv',padding='VALID')))
