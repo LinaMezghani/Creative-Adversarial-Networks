@@ -34,7 +34,7 @@ def wgan_cond(model, image, y, reuse=False):
         
         yb = tf.reshape(y, [-1, 1, 1, model.y_dim])
         image_ = conv_cond_concat(image, yb)
-        h0 = lrelu(layer_norm(conv2d(image_, model.df_dim, k_h=4, k_w=4, name='d_h0_conv',padding='VALID'), name =""))
+        h0 = lrelu(layer_norm(conv2d(image_, model.df_dim, k_h=4, k_w=4, name='d_h0_conv',padding='VALID')))
         h0 = conv_cond_concat(h0, yb)
         h1 = lrelu(layer_norm(conv2d(h0, model.df_dim*4, k_h=4, k_w=4, name='d_h1_conv', padding='VALID')))
         h1 = conv_cond_concat(h1, yb)
@@ -59,7 +59,7 @@ def vanilla_wgan(model, image, reuse=False):
         if reuse:
             scope.reuse_variables()
         
-        h0 = lrelu(layer_norm(conv2d(image, model.df_dim, k_h=4, k_w=4, name='d_h0_conv',padding='VALID')))
+        h0 = lrelu(layer_norm(conv2d(image, model.df_dim, k_h=4, k_w=4, name='d_h0_conv',padding='VALID'), name =""))
         h1 = lrelu(layer_norm(conv2d(h0, model.df_dim*4, k_h=4, k_w=4, name='d_h1_conv', padding='VALID')))
         h2 = lrelu(layer_norm(conv2d(h1, model.df_dim*8, k_h=4, k_w=4, name='d_h2_conv', padding='VALID')))
         h3 = lrelu(layer_norm(conv2d(h2, model.df_dim*16, k_h=4, k_w=4, name='d_h3_conv', padding='VALID')))
