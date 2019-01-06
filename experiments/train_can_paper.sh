@@ -5,9 +5,9 @@ python3 main.py \
 --learning_rate .0001 \
 --beta1_power 0.5 \
 --batch_size 16 \
---sample_size 16 \
---input_height 256 \
---output_height 256 \
+--sample_size 9 \
+--input_height 128 \
+--output_height 128 \
 --lambda_val 1.0 \
 --smoothing 1.0 \
 --use_resize=True \
