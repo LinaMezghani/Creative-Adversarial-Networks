@@ -1,7 +1,7 @@
 export CUDA_VISIBLE_DEVICES=0,1 # edit this if you want to limit yourself to GPU
 #export PYTHONPATH="slim/:$PYTHONPATH"
 python3 main.py \
---epoch 25 \
+--epoch 10 \
 --learning_rate .0001 \
 --beta1_power 0.5 \
 --batch_size 16 \
@@ -18,5 +18,5 @@ python3 main.py \
 --visualize=False \
 --can=True \
 --wgan=False \
---train=False \
+--train
 
