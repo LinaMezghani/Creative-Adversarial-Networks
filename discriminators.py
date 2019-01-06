@@ -60,12 +60,12 @@ def vanilla_wgan(model, image, reuse=False):
         if reuse:
             scope.reuse_variables()
         
-        h0 = lrelu(layer_norm(conv2d(image, model.df_dim, k_h=4, k_w=4, name='d_h0_conv',padding='VALID'), name =""))
-        h1 = lrelu(layer_norm(conv2d(h0, model.df_dim*4, k_h=4, k_w=4, name='d_h1_conv', padding='VALID')))
-        h2 = lrelu(layer_norm(conv2d(h1, model.df_dim*8, k_h=4, k_w=4, name='d_h2_conv', padding='VALID')))
-        h3 = lrelu(layer_norm(conv2d(h2, model.df_dim*16, k_h=4, k_w=4, name='d_h3_conv', padding='VALID')))
-        h4 = lrelu(layer_norm(conv2d(h3, model.df_dim*32, k_h=4, k_w=4, name='d_h4_conv', padding='VALID')))
-        h5 = lrelu(layer_norm(conv2d(h4, model.df_dim*32, k_h=4, k_w=4, name='d_h5_conv', padding='VALID')))
+        h0 = lrelu(layer_norm(conv2d(image, model.df_dim, k_h=4, k_w=4, name='d_h0_conv',padding='VALID'), name ="dh0conv"))
+        h1 = lrelu(layer_norm(conv2d(h0, model.df_dim*4, k_h=4, k_w=4, name='d_h1_conv', padding='VALID'), name = "dh1conv"))
+        h2 = lrelu(layer_norm(conv2d(h1, model.df_dim*8, k_h=4, k_w=4, name='d_h2_conv', padding='VALID'), name = "dh2conv"))
+        h3 = lrelu(layer_norm(conv2d(h2, model.df_dim*16, k_h=4, k_w=4, name='d_h3_conv', padding='VALID'), name = "dh3conv"))
+        h4 = lrelu(layer_norm(conv2d(h3, model.df_dim*32, k_h=4, k_w=4, name='d_h4_conv', padding='VALID'), name ="dh4conv"))
+        h5 = lrelu(layer_norm(conv2d(h4, model.df_dim*32, k_h=4, k_w=4, name='d_h5_conv', padding='VALID'), name = "dh5conv"))
 
         shape = np.product(h5.get_shape()[1:].as_list())
         h5 = tf.reshape(h5, [-1, shape])
