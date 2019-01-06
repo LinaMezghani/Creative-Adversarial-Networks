@@ -3,7 +3,7 @@ python3 main.py \
 --epoch 25 \
 --learning_rate .0001 \
 --beta 0.5 \
---batch_size 4 \
+--batch_size 16 \
 --sample_size 9 \
 --input_height 28 \
 --output_height 28 \
@@ -13,8 +13,8 @@ python3 main.py \
 --input_fname_pattern */*.jpg \
 --checkpoint_dir checkpoint \
 --sample_dir samples \
---crop False \
---visualize False \
---can True \
---wgan False \
+--crop=False \
+--visualize=False \
+--can=True \
+--wgan=False \
 --train
