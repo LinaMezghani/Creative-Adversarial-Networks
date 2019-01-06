@@ -13,9 +13,9 @@ python3 main.py \
 --use_resize=True \
 --dataset wikiart \
 --input_fname_pattern */*.jpg \
---checkpoint_dir = \
+--checkpoint_dir checkpointwgan \
 --crop=False \
 --visualize=False \
---can=True \
---wgan=False \
+--can=False \
+--wgan=True \
 --train=False
