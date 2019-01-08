@@ -5,8 +5,8 @@ python3 main.py \
 --beta 0.5 \
 --batch_size 16 \
 --sample_size 9 \
---input_height 256 \
---output_height 256 \
+--input_height 64 \
+--output_height 64 \
 --lambda_val 1.0 \
 --smoothing 1.0 \
 --use_resize=True \
